@@ -5,8 +5,11 @@ python:
 services:
   - docker
 
+before_install:
+- cp .ignored.file.copy ignored.file
 
 before_script: pip install docker-compose
 
 script:
-  - docker-compose run app sh -c "python manage.py test && flake8"
+  - docker-compose run app sh -c "python manage.py test"
+
