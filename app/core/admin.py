@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User,Tag,Ingredient
+from .models import User,Tag,Ingredient,Recipe
 from django.utils.translation import gettext as _
 
 
@@ -33,3 +33,4 @@ class CustomUserAdmin(UserAdmin):
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Tag)
 admin.site.register(Ingredient)
+admin.site.register(Recipe)
