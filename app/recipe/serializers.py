@@ -24,7 +24,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     )
     tags = serializers.PrimaryKeyRelatedField(
         many=True,
-        queryset=Ingredient.objects.all()
+        queryset=Tag.objects.all()
     )
     class Meta:
         model = Recipe
@@ -35,3 +35,10 @@ class RecipeDetailSerializer(RecipeSerializer):
     """Serializer a recipe detail"""
     ingredients = IngredientSerializer(many=True, read_only=True)
     tags = SerializerTag(many=True,read_only=True)
+
+class RecipeImageSerializer(serializers.ModelSerializer):
+    """Serializer for uploading images to recipes"""
+    class Meta:
+        model = Recipe
+        fields = ('id','image')
+        read_only_fields = ('id',)
